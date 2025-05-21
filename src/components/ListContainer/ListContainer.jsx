@@ -33,9 +33,17 @@ export default function ListContainer() {
 				</div>
 			</ListItemLayout>
 			<div className={styles.continer}>
-				<ListItem />
-				<ListItem />
-				<ListItem />
+				<ListItem
+					title={'issue'}
+					description={'디스트립션'}
+					badges={[{ color: 'red', title: 'badge' }]}
+				/>
+				<ListItem
+					title={'issue'}
+					description={'디스트립션'}
+					badges={[{ color: 'blue', title: 'badge' }]}
+				/>
+				<ListItem title={'issue'} description={'디스트립션'} />
 			</div>
 		</div>
 	)
