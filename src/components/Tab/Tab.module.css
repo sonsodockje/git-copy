@@ -1,0 +1,27 @@
+.tab {
+	display: flex;
+	gap: 8px;
+}
+.tabItem {
+	margin-top: 25px;
+	display: flex;
+}
+.tabButton {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.circle {
+	text-align: center;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #bcbcbc;
+	padding: 2px;
+	font-size: 14px;
+	line-height: 14px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-left: 3px;
+}
