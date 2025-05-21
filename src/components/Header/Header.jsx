@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Header.module.css'
 import Button from '../Button/Button.jsx'
 import Space from '../Space.jsx'
-import Tab from '../Tab/Tab.jsx'
+import Tabs from '../Tabs/Tabs.jsx'
 
 export default function Nav() {
 	return (
@@ -26,7 +26,7 @@ export default function Nav() {
 				/>
 			</div>
 			<div>
-				<Tab />
+				<Tabs />
 			</div>
 		</div>
 	)

@@ -1,16 +1,21 @@
-.tab {
-	display: flex;
-	gap: 8px;
-}
-.tabItem {
-	margin-top: 25px;
-	display: flex;
-}
-.tabButton {
+.tabs {
+	margin-top: 16px;
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 10px;
 }
+.tab {
+	display: flex;
+	border: none;
+	background: transparent;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 15px;
+	margin-right: 10px;
+
+	cursor: pointer;
+}
+
 .circle {
 	text-align: center;
 	width: 15px;
@@ -24,4 +29,8 @@
 	display: flex;
 	justify-content: center;
 	margin-left: 3px;
+}
+.selected {
+	border-bottom: #fa4549 2px solid;
+	font-weight: 600;
 }
