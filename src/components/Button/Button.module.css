@@ -7,4 +7,9 @@
 	align-items: center;
 	justify-content: center;
 	gap: 8px;
+
+	height: 100%;
+	box-sizing: border-box;
+
+	cursor: pointer;
 }

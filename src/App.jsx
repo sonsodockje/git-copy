@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './App.module.css'
 import Header from './components/Header/Header.jsx'
-import Button from './components/Button/Button.jsx'
+import ListContainer from './components/ListContainer/ListContainer.jsx'
 import Footer from './components/Footer/Footer.jsx'
 
 export default function App() {
@@ -10,13 +10,7 @@ export default function App() {
 		<div>
 			<div className={styles.nav}>Nav</div>
 			<Header />
-
-			<div className={styles.listContainer}>
-				<Button
-					style={{ backgroundColor: 'green', fontSize: '14px', color: 'white' }}
-					name={'New Issue'}
-				/>
-			</div>
+			<ListContainer />
 			<Footer />
 		</div>
 	)
