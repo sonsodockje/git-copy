@@ -1,7 +1,7 @@
 .listContainer {
 	padding: 0 32px;
 	margin-top: 24px;
-	height: 220px;
+	/* height: 220px; */
 }
 .topSection {
 	display: flex;
@@ -24,4 +24,24 @@
 	height: 100%;
 	box-sizing: border-box;
 	flex-grow: 1;
+}
+
+.filteringList {
+	display: flex;
+	align-items: center;
+	padding: 16px;
+}
+
+.filteringList > span {
+	padding: 0 16px;
+	line-height: 20px;
+}
+
+.listHeader {
+	margin-top: 20px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background: rgb(249, 250, 252);
+
+	align-items: center;
 }

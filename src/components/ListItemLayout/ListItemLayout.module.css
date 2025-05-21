@@ -1,0 +1,23 @@
+.oneListItemWapper {
+	padding: 8px 16px;
+	border: 1px solid #d0d7de;
+	border-bottom: none;
+	/* 
+	background: #ffffff; */
+	display: flex;
+	align-items: flex-start;
+}
+
+.oneListItemWapper:hover {
+	background: #f6f8fa;
+}
+
+.chekbox {
+	margin-right: 8px;
+	margin-top: 5px;
+}
+.oneListItemWapper:last-child {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom: 1px solid #d0d7de;
+}
