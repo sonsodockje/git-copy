@@ -9,6 +9,7 @@
 	align-items: center;
 	height: 32px;
 	gap: 8px;
+	margin-bottom: 16px;
 }
 
 .input {
@@ -44,4 +45,12 @@
 	background: rgb(249, 250, 252);
 
 	align-items: center;
+}
+
+.textFilter {
+	cursor: pointer;
+	margin-right: 8px;
+}
+.sleted {
+	font-weight: 800;
 }
