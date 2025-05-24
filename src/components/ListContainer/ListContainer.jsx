@@ -5,9 +5,25 @@ import ListItem from '../ListItem/ListItem.jsx'
 import ListItemLayout from '../ListItemLayout/ListItemLayout.jsx'
 
 import cx from 'clsx'
+import Modal from '../Modal/Modal.jsx'
 
 export default function ListContainer() {
 	const [inputValue, setInputValue] = useState('is:pr is:open')
+	const [list, setList] = useState([
+		{
+			id: 1,
+			title: 'Issue 1',
+			description: 'Description for issue 1',
+			badges: [{ color: 'red', title: 'urgent' }],
+		},
+		{
+			id: 2,
+			title: 'Issue 2',
+			description: 'Description for issue 2',
+			badges: [{ color: 'blue', title: 'info' }],
+		},
+	])
+	const [filteredData, setFilteredData] = useState([])
 
 	return (
 		<div className={styles.listContainer}>
@@ -25,18 +41,23 @@ export default function ListContainer() {
 				/>
 			</div>
 			<OpenClosedFilters />
-			<ListItemLayout className={styles.listHeader}>
-				<div className={styles.filteringList}>
-					<span>Author</span>
-					<span>Author</span>
-					<span>Author</span>
-					<span>Author</span>
-					<span>Author</span>
-					<span>Author</span>
-				</div>
+			<ListItemLayout className={cx(styles.listHeader, styles.first)}>
+				<FilterList
+					onChangeFilter={filteredData => {
+						// 필터링된 요소에 맞게 데이터 불러오기
+					}}
+				/>
 			</ListItemLayout>
 			<div className={styles.continer}>
-				<ListItem
+				{list.map(item => (
+					<ListItem
+						key={item.id}
+						title={item.title}
+						description={item.description}
+						badges={item?.badges}
+					/>
+				))}
+				{/* <ListItem
 					title={'issue'}
 					description={'디스트립션'}
 					badges={[{ color: 'red', title: 'badge' }]}
@@ -45,27 +66,14 @@ export default function ListContainer() {
 					title={'issue'}
 					description={'디스트립션'}
 					badges={[{ color: 'blue', title: 'badge' }]}
-				/>
-				<ListItem title={'issue'} description={'디스트립션'} />
+				/> */}
 			</div>
 		</div>
 	)
 }
 
-function OpenCloseFilter({ size, state, onClick, slected }) {
-	return (
-		<span
-			role="button"
-			onClick={onClick}
-			className={cx(styles.textFilter, {
-				[styles.sleted]: slected,
-			})}
-		>
-			{size} {state}
-		</span>
-	)
-}
-
+// 오픈, 클로즈된 정보 포함하는 컴포넌트
+// 각 개별 컴포넌트 포함
 function OpenClosedFilters({ data }) {
 	const [isOpenMode, setIsOpenMode] = useState(true)
 
@@ -88,5 +96,63 @@ function OpenClosedFilters({ data }) {
 				onClick={() => setIsOpenMode(false)}
 			/>
 		</>
+	)
+}
+
+// 오픈, 클로즈된 정보를 표시하는 컴포넌트 객체 자체
+function OpenCloseFilter({ size, state, onClick, slected }) {
+	return (
+		<span
+			role="button"
+			onClick={onClick}
+			className={cx(styles.textFilter, {
+				[styles.sleted]: slected,
+			})}
+		>
+			{size} {state}
+		</span>
+	)
+}
+
+// 리스트에 필터링 기능을 추가하는 컴포넌트
+// 리스트 필터 아이템을 포함함.
+function FilterList({ onChangeFilter }) {
+	// const [showModal, setShowModal] = useState(false)
+
+	return (
+		<>
+			<div className={styles.filteringList}>
+				<ListFilterItem>lando</ListFilterItem>
+				<ListFilterItem>norris</ListFilterItem>
+				<ListFilterItem>and</ListFilterItem>
+				<ListFilterItem>bruce</ListFilterItem>
+				<ListFilterItem>lee</ListFilterItem>
+			</div>
+		</>
+	)
+}
+
+// 리스트 필트 아이템 자체 컴포넌트
+// 각 필터의 모달을 띄우는 역할을 함
+function ListFilterItem({ onClick, children, onChangeFilter }) {
+	const [showModal, setShowModal] = useState(false)
+	return (
+		<div className={styles.filterItem}>
+			<span role="button" onClick={() => setShowModal(true)}>
+				{children} ▼
+			</span>
+			<Modal
+				opened={showModal}
+				onClose={() => setShowModal(false)}
+				placeholder={'Filter labels'}
+				searchData={['lando', 'norris', 'bruce', 'lee']}
+				onClickCell={e => {
+					console.log(e.target.innerText)
+
+					// 클릭된 정보를 통해 리스트 필터링
+					onChangeFilter()
+				}}
+			/>
+		</div>
 	)
 }

@@ -13,15 +13,13 @@ export default function ListItem({
 }) {
 	return (
 		<ListItemLayout>
-			<div>
-				<div onClick={onClickTitle} className={styles.title}>
-					{title}
-					{badges &&
-						badges.map((value, index) => <Badge key={index} {...value} />)}
+			<div onClick={onClickTitle} className={styles.title}>
+				{title}
+				{badges &&
+					badges.map((value, index) => <Badge key={index} {...value} />)}
 
-					<div onClick={onClickTitle} className={styles.description}>
-						# {description}
-					</div>
+				<div onClick={onClickTitle} className={styles.description}>
+					# {description}
 				</div>
 			</div>
 		</ListItemLayout>

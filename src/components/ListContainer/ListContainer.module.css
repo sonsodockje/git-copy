@@ -27,24 +27,33 @@
 	flex-grow: 1;
 }
 
+.listHeader {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background: rgb(249, 250, 252);
+	/* background-color: blue; */
+}
+
 .filteringList {
 	display: flex;
 	align-items: center;
+	gap: 16px;
+
 	padding: 16px;
 }
 
 .filteringList > span {
 	padding: 0 16px;
 	line-height: 20px;
+	cursor: pointer;
+	color: #57606a;
 }
 
-.listHeader {
-	margin-top: 20px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	background: rgb(249, 250, 252);
-
-	align-items: center;
+.filteringList > span:hover {
+	color: black;
 }
 
 .textFilter {
@@ -53,4 +62,15 @@
 }
 .sleted {
 	font-weight: 800;
+}
+
+.first {
+	align-items: center !important;
+}
+
+.filterItem {
+	position: relative;
+}
+.filterItem > span {
+	cursor: pointer;
 }
