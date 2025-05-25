@@ -6,6 +6,7 @@ import ListItemLayout from '../ListItemLayout/ListItemLayout.jsx'
 
 import cx from 'clsx'
 import Modal from '../Modal/Modal.jsx'
+import Pagination from '../Pagination/Pagination.jsx'
 
 export default function ListContainer() {
 	const [inputValue, setInputValue] = useState('is:pr is:open')
@@ -23,6 +24,8 @@ export default function ListContainer() {
 			badges: [{ color: 'blue', title: 'info' }],
 		},
 	])
+
+	const [currentPage, setCurrentPage] = useState(1)
 	const [filteredData, setFilteredData] = useState([])
 
 	return (
@@ -57,20 +60,17 @@ export default function ListContainer() {
 						badges={item?.badges}
 					/>
 				))}
-				{/* <ListItem
-					title={'issue'}
-					description={'디스트립션'}
-					badges={[{ color: 'red', title: 'badge' }]}
-				/>
-				<ListItem
-					title={'issue'}
-					description={'디스트립션'}
-					badges={[{ color: 'blue', title: 'badge' }]}
-				/> */}
 			</div>
+			<Pagination
+				totalPages={5}
+				currentPage={currentPage}
+				onPageChange={number => setCurrentPage(number)}
+			/>
 		</div>
 	)
 }
+
+///////////////////////////////// 작은 컴포넌트들 //////////////////////////////////////
 
 // 오픈, 클로즈된 정보 포함하는 컴포넌트
 // 각 개별 컴포넌트 포함
